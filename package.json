@@ -1,0 +1,14 @@
+{
+  "name": "entregable_1",
+  "version": "1.0.0",
+  "description": "entregable backend coderhouse",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "wilson del canto",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

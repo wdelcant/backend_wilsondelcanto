@@ -1,0 +1,14 @@
+# Archivos y carpetas innecesarios
+node_modules/
+dist/
+build/
+.cache/
+.env
+
+# Archivos de configuración
+*.config.js
+*.env
+
+# Archivos de dependencias
+package-lock.json
+yarn.lock
