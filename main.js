@@ -1,58 +1,47 @@
 const ProductManager = require('./productManager');
 
-// crea un nuevo producto y lo agrega a la lista de productos
-const manager = new ProductManager();
-manager.addProduct(
-  'Producto prueba',
-  'Este es un producto prueba',
-  200,
-  'Sin imagen',
-  'abc123',
-  25
-);
-console.log(manager.getProducts());
+const productManager = new ProductManager('products.json');
 
-// crea otro producto y lo agrega a la lista de productos
-const manager2 = new ProductManager();
-manager2.addProduct(
-  'Producto prueba 2',
-  'Este es un producto prueba 2',
-  300,
-  'Sin imagen',
-  'abc124',
-  30
-);
+// Ejemplo de uso
+productManager.addProduct({
+  title: 'Producto 1',
+  description: 'Descripción del producto 1',
+  price: 10.99,
+  thumbnail: 'ruta/de/imagen1.jpg',
+  code: 'PROD001',
+  stock: 100,
+});
 
-console.log(manager2.getProducts());
+productManager.addProduct({
+  title: 'Producto 2',
+  description: 'Descripción del producto 2',
+  price: 20.99,
+  thumbnail: 'ruta/de/imagen2.jpg',
+  code: 'PROD002',
+  stock: 50,
+});
 
-// agregar un producto existeintente
+productManager.addProduct({
+  title: 'Producto 3',
+  description: 'Descripción del producto 3',
+  price: 30.99,
+  thumbnail: 'ruta/de/imagen3.jpg',
+  code: 'PROD003',
+  stock: 10,
+});
 
-// const manager4 = new ProductManager();
-// manager.addProduct(
-//   'Producto prueba 4',
-//   'Este es un producto prueba 4',
-//   500,
-//   'Sin imagen',
-//   'abc123',
-//   40
-// );
+const allProducts = productManager.getProducts();
+console.log('Mostrando todos los productos');
+console.log(allProducts);
 
-// console.log(manager4.getProducts());
+const productById = productManager.getProductById(3);
+console.log('Mostrando producto con id 3');
+console.log(productById);
 
-// error al intentar agregar producto con campo faltante
+productManager.updateProduct(2, { price: 12.99 });
+console.log('Actualizando producto con id 2');
+console.log(productManager.getProductById(2));
 
-// const manager3 = new ProductManager();
-// manager3.addProduct(
-//   'Producto prueba 3',
-//   'Este es un producto prueba 3',
-//   400,
-//   'Sin imagen',
-//   35
-// );
-
-// console.log(manager3.getProducts());
-
-// error al intentar obtener un producto que no existe
-console.log(manager.getProductById(5));
-
-
+productManager.deleteProduct(1);
+console.log('Eliminando producto con id 1');
+console.log(productManager.getProducts());
