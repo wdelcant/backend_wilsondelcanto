@@ -12,15 +12,26 @@ class ProductManager {
       ProductManager.id = Math.max(...this.products.map(p => p.id)) + 1;
     }
   }
-
   addProduct(product) {
     try {
+      if (
+        !product.title ||
+        !product.description ||
+        !product.price ||
+        !product.thumbnail ||
+        !product.code ||
+        !product.stock
+      ) {
+        throw new Error(
+          'El producto debe tener titulo, descripcion, precio, foto de refencia, codigo, y el stock disponible'
+        );
+      }
       const newProduct = { id: ProductManager.id++, ...product };
       this.products.push(newProduct);
       fs.writeFileSync(this.path, JSON.stringify(this.products));
       return newProduct;
     } catch (error) {
-      throw new Error('Error al agregar el producto');
+      throw new Error(`Error al agregar el producto`);
     }
   }
 
