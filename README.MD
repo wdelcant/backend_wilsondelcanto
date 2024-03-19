@@ -7,7 +7,7 @@ esto se guarda localmente en el archivo products.json
 ## Instalación
 1. Clona este repositorio en tu máquina local.
 2. Navega hasta el directorio del proyecto: `cd backend_wilsondelcanto`. 
-3. Cambia a la rama de entregable_02 `git checkout entregable_02`.
+3. Cambia a la rama de entregable_xx `git checkout entregable_xx` segun que entregable deseas revisar.
 4. Ejecuta el comando `npm install` para instalar las dependencias.
 
 ## Inicio
