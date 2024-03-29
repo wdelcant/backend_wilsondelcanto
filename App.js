@@ -37,7 +37,9 @@ app.put('/products/:id', async (req, res) => {
   const product = req.body;
   const existingProduct = await productManager.getProductById(id);
   if (!existingProduct) {
-    return res.status(404).json({ error: 'Producto no encontrado' });
+    return res.status(404).json({
+      error: `No se puede actualizar un producto con el ID:${id} que no existe`,
+    });
   }
   await productManager.updateProduct(id, product);
   res.json({ message: 'Producto actualizado correctamente' });
@@ -47,7 +49,9 @@ app.delete('/products/:id', async (req, res) => {
   const id = parseInt(req.params.id);
   const existingProduct = await productManager.getProductById(id);
   if (!existingProduct) {
-    return res.status(404).json({ error: 'Producto no encontrado' });
+    return res.status(404).json({
+      error: `No se puede eliminar un producto con el ID:${id} que no existe`,
+    });
   }
   await productManager.deleteProduct(id);
   res.json({ message: 'Producto eliminado correctamente' });
