@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "dev": "node --watch App.js",
-    "start": "node build/index.js",
+    "start": "node app.js",
     "build": "npm install"
   },
   "type": "module",
