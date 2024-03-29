@@ -2,33 +2,16 @@ const ProductManager = require('./productManager');
 
 const productManager = new ProductManager('products.json');
 
-// Ejemplo de uso
-productManager.addProduct({
-  title: 'Producto 1',
-  description: 'Descripción del producto 1',
-  price: 10.99,
-  thumbnail: 'ruta/de/imagen1.jpg',
-  code: 'PROD001',
-  stock: 100,
-});
-
-productManager.addProduct({
-  title: 'Producto 2',
-  description: 'Descripción del producto 2',
-  price: 20.99,
-  thumbnail: 'ruta/de/imagen2.jpg',
-  code: 'PROD002',
-  stock: 50,
-});
-
-productManager.addProduct({
-  title: 'Producto 3',
-  description: 'Descripción del producto 3',
-  price: 30.99,
-  thumbnail: 'ruta/de/imagen3.jpg',
-  code: 'PROD003',
-  stock: 10,
-});
+for (let i = 1; i <= 11; i++) {
+  productManager.addProduct({
+    title: `Producto ${i}`,
+    description: `Descripción del producto ${i}`,
+    price: 10.99 * i,
+    thumbnail: `ruta/de/imagen${i}.jpg`,
+    code: `PROD00${i}`,
+    stock: 100 * i,
+  });
+}
 
 const allProducts = productManager.getProducts();
 console.log('Mostrando todos los productos');
