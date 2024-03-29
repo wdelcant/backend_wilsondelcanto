@@ -46,9 +46,6 @@ class ProductManager {
   getProductById(id) {
     const products = this.getProducts();
     const product = products.find(product => product.id === id);
-    if (!product) {
-      throw new Error('Producto con id no inexistente');
-    }
     return product;
   }
 
