@@ -23,7 +23,6 @@ app.get('/products/:id', async (req, res) => {
   if (!product) {
     return res.status(404).json({ error: 'Producto no encontrado' });
   }
-
   res.json({ product });
 });
 
@@ -36,12 +35,20 @@ app.post('/products', async (req, res) => {
 app.put('/products/:id', async (req, res) => {
   const id = parseInt(req.params.id);
   const product = req.body;
+  const existingProduct = await productManager.getProductById(id);
+  if (!existingProduct) {
+    return res.status(404).json({ error: 'Producto no encontrado' });
+  }
   await productManager.updateProduct(id, product);
   res.json({ message: 'Producto actualizado correctamente' });
 });
 
 app.delete('/products/:id', async (req, res) => {
   const id = parseInt(req.params.id);
+  const existingProduct = await productManager.getProductById(id);
+  if (!existingProduct) {
+    return res.status(404).json({ error: 'Producto no encontrado' });
+  }
   await productManager.deleteProduct(id);
   res.json({ message: 'Producto eliminado correctamente' });
 });

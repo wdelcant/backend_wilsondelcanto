@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "af0dd2ef-6940-4c1e-acf7-a4a187c3f370",
+		"name": "Backend Coder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24592193"
+	},
+	"item": [
+		{
+			"name": "Todos los Productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Producto por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/products/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Productos liminite 5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products?limit=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Producto no encontrado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/products/1111"
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Producto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"title\": \"Producto 2\",\r\n    \"description\": \"Descripción del producto 2\",\r\n    \"price\": 12.99,\r\n    \"thumbnail\": \"ruta/de/imagen2.jpg\",\r\n    \"code\": \"PROD002\",\r\n    \"stock\": 200\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Editar un producto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"title\": \"Producto 2\",\r\n    \"description\": \"Descripción modificada\",\r\n    \"price\": 12.99,\r\n    \"thumbnail\": \"ruta/de/imagen2.jpg\",\r\n    \"code\": \"PROD002\",\r\n    \"stock\": 200\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/products/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un producto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/products/4"
+			},
+			"response": []
+		}
+	]
+}
