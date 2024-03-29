@@ -8,6 +8,7 @@
     "start": "node App.js",
     "dev": "node --watch App.js"
   },
+  "type": "module",
   "author": "wilson del canto",
   "license": "ISC",
   "devDependencies": {
