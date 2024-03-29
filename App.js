@@ -4,6 +4,8 @@ const ProductManager = require('./productManager');
 const app = express();
 const productManager = new ProductManager('./products.json');
 
+app.use(express.json());
+
 app.get('/products', async (req, res) => {
   const limit = req.query.limit;
   let products = await productManager.getProducts();
