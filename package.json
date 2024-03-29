@@ -4,7 +4,9 @@
   "description": "entregable backend coderhouse",
   "main": "main.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node App.js",
+    "dev": "node --watch App.js"
   },
   "author": "wilson del canto",
   "license": "ISC",

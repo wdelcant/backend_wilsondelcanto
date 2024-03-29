@@ -6,8 +6,12 @@ const productManager = new ProductManager('./products.json');
 
 app.use(express.json());
 
+app.get('/', (_, res) => {
+  res.json({ message: 'Bienvenido a la API de productos' });
+});
+
 app.get('/products', async (req, res) => {
-  const limit = req.query.limit;
+  const { limit } = req.query; // const limit = req.query.limit;
   let products = await productManager.getProducts();
 
   if (limit) {
