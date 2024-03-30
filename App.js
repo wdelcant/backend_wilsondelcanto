@@ -7,7 +7,7 @@ const productManager = new ProductManager('./products.json');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (_, res) => {
+app.get('/', (_req, res) => {
   res.json({ message: 'Bienvenido a la API de productos' });
 });
 
@@ -26,7 +26,10 @@ app.get('/products/:id', async (req, res) => {
   const id = parseInt(req.params.id);
   const product = await productManager.getProductById(id);
   if (!product) {
-    return res.status(404).json({ error: 'Producto no encontrado' });
+    return res.status(404).json({
+      status: 'error',
+      error: 'Producto no encontrado',
+    });
   }
   res.json({ product });
 });
@@ -36,6 +39,7 @@ app.post('/products', async (req, res) => {
   await productManager.addProduct(product);
   // res.status(201).json({ message: 'Producto agregado correctamente' });
   res.status(201).json({
+    status: 'success',
     message: 'Producto agregado correctamente',
     payload: product,
   });
@@ -47,6 +51,7 @@ app.put('/products/:id', async (req, res) => {
   const existingProduct = await productManager.getProductById(id);
   if (!existingProduct) {
     return res.status(404).json({
+      status: 'error',
       error: `No se puede actualizar un producto con el ID:${id} que no existe`,
     });
   }
@@ -59,11 +64,13 @@ app.delete('/products/:id', async (req, res) => {
   const existingProduct = await productManager.getProductById(id);
   if (!existingProduct) {
     return res.status(404).json({
+      status: 'error',
       error: `No se puede eliminar un producto con el ID:${id} que no existe`,
     });
   }
   await productManager.deleteProduct(id);
   res.json({
+    status: 'success',
     message: 'Producto eliminado correctamente',
     payload: existingProduct,
   });
