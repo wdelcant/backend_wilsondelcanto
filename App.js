@@ -12,7 +12,7 @@ app.get('/', (_req, res) => {
 });
 
 app.get('/products', async (req, res) => {
-  const { limit } = req.query; // const limit = req.query.limit;
+  const { limit } = req.query;
   let products = await productManager.getProducts();
 
   if (limit) {
