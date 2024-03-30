@@ -5,6 +5,7 @@ const app = express();
 const productManager = new ProductManager('./products.json');
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (_, res) => {
   res.json({ message: 'Bienvenido a la API de productos' });
@@ -33,7 +34,11 @@ app.get('/products/:id', async (req, res) => {
 app.post('/products', async (req, res) => {
   const product = req.body;
   await productManager.addProduct(product);
-  res.status(201).json({ message: 'Producto agregado correctamente' });
+  // res.status(201).json({ message: 'Producto agregado correctamente' });
+  res.status(201).json({
+    message: 'Producto agregado correctamente',
+    payload: product,
+  });
 });
 
 app.put('/products/:id', async (req, res) => {
@@ -46,7 +51,7 @@ app.put('/products/:id', async (req, res) => {
     });
   }
   await productManager.updateProduct(id, product);
-  res.json({ message: 'Producto actualizado correctamente' });
+  res.json({ message: 'Producto actualizado correctamente', payload: product });
 });
 
 app.delete('/products/:id', async (req, res) => {
@@ -58,7 +63,10 @@ app.delete('/products/:id', async (req, res) => {
     });
   }
   await productManager.deleteProduct(id);
-  res.json({ message: 'Producto eliminado correctamente' });
+  res.json({
+    message: 'Producto eliminado correctamente',
+    payload: existingProduct,
+  });
 });
 
 const PORT = process.env.PORT || 8080;

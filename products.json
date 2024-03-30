@@ -1,1 +1,137 @@
-[{"id":1,"title":"Producto 1","description":"Descripción del producto 1","price":10.99,"thumbnail":"ruta/de/imagen1.jpg","code":"PROD001","stock":100},{"id":2,"title":"Producto 2","description":"Descripción del producto 2","price":21.98,"thumbnail":"ruta/de/imagen2.jpg","code":"PROD002","stock":200},{"id":3,"title":"Producto 3","description":"Descripción del producto 3","price":32.97,"thumbnail":"ruta/de/imagen3.jpg","code":"PROD003","stock":300},{"id":4,"title":"Producto 4","description":"Descripción del producto 4","price":43.96,"thumbnail":"ruta/de/imagen4.jpg","code":"PROD004","stock":400},{"id":5,"title":"Producto 5","description":"Descripción del producto 5","price":54.95,"thumbnail":"ruta/de/imagen5.jpg","code":"PROD005","stock":500},{"id":6,"title":"Producto 6","description":"Descripción del producto 6","price":65.94,"thumbnail":"ruta/de/imagen6.jpg","code":"PROD006","stock":600},{"id":7,"title":"Producto 7","description":"Descripción del producto 7","price":76.93,"thumbnail":"ruta/de/imagen7.jpg","code":"PROD007","stock":700},{"id":8,"title":"Producto 8","description":"Descripción del producto 8","price":87.92,"thumbnail":"ruta/de/imagen8.jpg","code":"PROD008","stock":800},{"id":9,"title":"Producto 9","description":"Descripción del producto 9","price":98.91,"thumbnail":"ruta/de/imagen9.jpg","code":"PROD009","stock":900},{"id":10,"title":"Producto 10","description":"Descripción del producto 10","price":109.9,"thumbnail":"ruta/de/imagen10.jpg","code":"PROD0010","stock":1000},{"id":11,"title":"Producto 11","description":"Descripción del producto 11","price":120.89,"thumbnail":"ruta/de/imagen11.jpg","code":"PROD0011","stock":1100},{"id":12,"title":"Producto 12","description":"Descripción del producto 12","price":131.88,"thumbnail":"ruta/de/imagen12.jpg","code":"PROD0012","stock":1200},{"id":13,"title":"Producto 13","description":"Descripción del producto 13","price":142.87,"thumbnail":"ruta/de/imagen13.jpg","code":"PROD0013","stock":1300},{"id":14,"title":"Producto 14","description":"Descripción del producto 14","price":153.86,"thumbnail":"ruta/de/imagen14.jpg","code":"PROD0014","stock":1400},{"id":15,"title":"Producto 15","description":"Descripción del producto 15","price":164.85,"thumbnail":"ruta/de/imagen15.jpg","code":"PROD0015","stock":1500}]
+[
+  {
+    "id": 1,
+    "title": "Producto 1",
+    "description": "Descripción del producto 1",
+    "price": 10.99,
+    "thumbnail": "ruta/de/imagen1.jpg",
+    "code": "PROD001",
+    "stock": 100
+  },
+  {
+    "id": 2,
+    "title": "Producto 2",
+    "description": "Descripción del producto 2",
+    "price": 21.98,
+    "thumbnail": "ruta/de/imagen2.jpg",
+    "code": "PROD002",
+    "stock": 200
+  },
+  {
+    "id": 3,
+    "title": "Producto 3",
+    "description": "Descripción del producto 3",
+    "price": 32.97,
+    "thumbnail": "ruta/de/imagen3.jpg",
+    "code": "PROD003",
+    "stock": 300
+  },
+  {
+    "id": 4,
+    "title": "Producto 4",
+    "description": "Descripción del producto 4",
+    "price": 43.96,
+    "thumbnail": "ruta/de/imagen4.jpg",
+    "code": "PROD004",
+    "stock": 400
+  },
+  {
+    "id": 5,
+    "title": "Producto 5",
+    "description": "Descripción del producto 5",
+    "price": 54.95,
+    "thumbnail": "ruta/de/imagen5.jpg",
+    "code": "PROD005",
+    "stock": 500
+  },
+  {
+    "id": 6,
+    "title": "Producto 6",
+    "description": "Descripción del producto 6",
+    "price": 65.94,
+    "thumbnail": "ruta/de/imagen6.jpg",
+    "code": "PROD006",
+    "stock": 600
+  },
+  {
+    "id": 7,
+    "title": "Producto 7",
+    "description": "Descripción del producto 7",
+    "price": 76.93,
+    "thumbnail": "ruta/de/imagen7.jpg",
+    "code": "PROD007",
+    "stock": 700
+  },
+  {
+    "id": 8,
+    "title": "Producto 8",
+    "description": "Descripción del producto 8",
+    "price": 87.92,
+    "thumbnail": "ruta/de/imagen8.jpg",
+    "code": "PROD008",
+    "stock": 800
+  },
+  {
+    "id": 9,
+    "title": "Producto 9",
+    "description": "Descripción del producto 9",
+    "price": 98.91,
+    "thumbnail": "ruta/de/imagen9.jpg",
+    "code": "PROD009",
+    "stock": 900
+  },
+  {
+    "id": 10,
+    "title": "Producto 10",
+    "description": "Descripción del producto 10",
+    "price": 109.9,
+    "thumbnail": "ruta/de/imagen10.jpg",
+    "code": "PROD0010",
+    "stock": 1000
+  },
+  {
+    "id": 11,
+    "title": "Producto 11",
+    "description": "Descripción del producto 11",
+    "price": 120.89,
+    "thumbnail": "ruta/de/imagen11.jpg",
+    "code": "PROD0011",
+    "stock": 1100
+  },
+  {
+    "id": 12,
+    "title": "Producto 12",
+    "description": "Descripción del producto 12",
+    "price": 131.88,
+    "thumbnail": "ruta/de/imagen12.jpg",
+    "code": "PROD0012",
+    "stock": 1200
+  },
+  {
+    "id": 13,
+    "title": "Producto 13",
+    "description": "Descripción del producto 13",
+    "price": 142.87,
+    "thumbnail": "ruta/de/imagen13.jpg",
+    "code": "PROD0013",
+    "stock": 1300
+  },
+  {
+    "id": 14,
+    "title": "Producto 14",
+    "description": "Descripción del producto 14",
+    "price": 153.86,
+    "thumbnail": "ruta/de/imagen14.jpg",
+    "code": "PROD0014",
+    "stock": 1400
+  },
+  {
+    "id": 15,
+    "title": "Producto 15",
+    "description": "Descripción del producto 15",
+    "price": 164.85,
+    "thumbnail": "ruta/de/imagen15.jpg",
+    "code": "PROD0015",
+    "stock": 1500
+  }
+]

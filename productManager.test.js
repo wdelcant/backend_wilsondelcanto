@@ -1,5 +1,5 @@
-const fs = require('fs');
-const ProductManager = require('./productManager');
+import fs from 'fs';
+import ProductManager from './productManager';
 
 describe('ProductManager', () => {
   const filePath = './test_products.json';
