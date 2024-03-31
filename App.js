@@ -37,7 +37,6 @@ app.get('/products/:id', async (req, res) => {
 app.post('/products', async (req, res) => {
   const product = req.body;
   await productManager.addProduct(product);
-  // res.status(201).json({ message: 'Producto agregado correctamente' });
   res.status(201).json({
     status: 'success',
     message: 'Producto agregado correctamente',
