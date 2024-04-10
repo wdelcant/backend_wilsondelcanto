@@ -1,0 +1,42 @@
+body {
+  background-color: #bbb;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.title {
+  font-size: 2em;
+  text-align: center;
+  margin: 0;
+  padding: 0.5em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+input {
+  margin: 0.5em 0;
+  padding: 0.5em;
+}
+
+button {
+  margin: 0.5em 0;
+  padding: 0.5em;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}

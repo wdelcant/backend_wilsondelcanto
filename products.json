@@ -6,7 +6,8 @@
     "price": 10.99,
     "thumbnail": "ruta/de/imagen1.jpg",
     "code": "PROD001",
-    "stock": 100
+    "stock": 100,
+    "category": "category1"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "price": 21.98,
     "thumbnail": "ruta/de/imagen2.jpg",
     "code": "PROD002",
-    "stock": 200
+    "stock": 200,
+    "category": "category2"
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "price": 32.97,
     "thumbnail": "ruta/de/imagen3.jpg",
     "code": "PROD003",
-    "stock": 300
+    "stock": 300,
+    "category": "category3"
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "price": 43.96,
     "thumbnail": "ruta/de/imagen4.jpg",
     "code": "PROD004",
-    "stock": 400
+    "stock": 400,
+    "category": "category4"
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "price": 54.95,
     "thumbnail": "ruta/de/imagen5.jpg",
     "code": "PROD005",
-    "stock": 500
+    "stock": 500,
+    "category": "category5"
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "price": 65.94,
     "thumbnail": "ruta/de/imagen6.jpg",
     "code": "PROD006",
-    "stock": 600
+    "stock": 600,
+    "category": "category6"
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "price": 76.93,
     "thumbnail": "ruta/de/imagen7.jpg",
     "code": "PROD007",
-    "stock": 700
+    "stock": 700,
+    "category": "category7"
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "price": 87.92,
     "thumbnail": "ruta/de/imagen8.jpg",
     "code": "PROD008",
-    "stock": 800
+    "stock": 800,
+    "category": "category8"
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "price": 98.91,
     "thumbnail": "ruta/de/imagen9.jpg",
     "code": "PROD009",
-    "stock": 900
+    "stock": 900,
+    "category": "category9"
   },
   {
     "id": 10,
@@ -87,7 +96,8 @@
     "price": 109.9,
     "thumbnail": "ruta/de/imagen10.jpg",
     "code": "PROD0010",
-    "stock": 1000
+    "stock": 1000,
+    "category": "category10"
   },
   {
     "id": 11,
@@ -96,7 +106,8 @@
     "price": 120.89,
     "thumbnail": "ruta/de/imagen11.jpg",
     "code": "PROD0011",
-    "stock": 1100
+    "stock": 1100,
+    "category": "category11"
   },
   {
     "id": 12,
@@ -105,7 +116,8 @@
     "price": 131.88,
     "thumbnail": "ruta/de/imagen12.jpg",
     "code": "PROD0012",
-    "stock": 1200
+    "stock": 1200,
+    "category": "category12"
   },
   {
     "id": 13,
@@ -114,7 +126,8 @@
     "price": 142.87,
     "thumbnail": "ruta/de/imagen13.jpg",
     "code": "PROD0013",
-    "stock": 1300
+    "stock": 1300,
+    "category": "category13"
   },
   {
     "id": 14,
@@ -123,7 +136,8 @@
     "price": 153.86,
     "thumbnail": "ruta/de/imagen14.jpg",
     "code": "PROD0014",
-    "stock": 1400
+    "stock": 1400,
+    "category": "category14"
   },
   {
     "id": 15,
@@ -132,6 +146,7 @@
     "price": 164.85,
     "thumbnail": "ruta/de/imagen15.jpg",
     "code": "PROD0015",
-    "stock": 1500
+    "stock": 1500,
+    "category": "category15"
   }
 ]
