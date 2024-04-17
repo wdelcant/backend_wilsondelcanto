@@ -1,3 +1,4 @@
+import { Server } from 'socket.io';
 import ProductManager from '../models/productModel.js';
 
 const productManager = new ProductManager('./products.json');
@@ -5,7 +6,7 @@ const productManager = new ProductManager('./products.json');
 export const getProducts = async (req, res) => {
   const limit = parseInt(req.query.limit);
   const products = await productManager.getProducts(limit);
-  res.json({ products });
+  res.render('products', { products });
 };
 
 export const getProductById = async (req, res) => {
@@ -32,14 +33,15 @@ export const addProduct = async (req, res) => {
   ) {
     return res.status(400).json({
       status: 'error',
-      error: 'Todos los campos son obligatorios, a excepción de thumbnails',
+      error: 'Datos de producto incompletos',
     });
   }
-  await productManager.addProduct(product);
+  const newProduct = await productManager.addProduct(product);
+  req.io.emit('productCreated', newProduct);
   res.status(201).json({
     status: 'success',
-    message: 'Producto agregado correctamente',
-    payload: product,
+    message: 'Producto creado correctamente',
+    product: newProduct,
   });
 };
 
@@ -67,10 +69,8 @@ export const deleteProduct = async (req, res) => {
     });
   }
   await productManager.deleteProduct(pid);
-  res.json({
-    status: 'success',
-    message: 'Producto eliminado correctamente',
-  });
+  req.io.emit('productDeleted', pid);
+  res.status(200).json({ message: 'Producto eliminado correctamente' });
 };
 
 export const deleteAllProducts = async (req, res) => {
@@ -80,3 +80,35 @@ export const deleteAllProducts = async (req, res) => {
     message: 'Todos los productos han sido eliminados',
   });
 };
+
+export const getHome = async (req, res) => {
+  const products = await productManager.getProducts();
+  res.render('home', { products });
+};
+
+export const getRealTimeProducts = async (req, res) => {
+  const products = await productManager.getProducts();
+  res.render('realTimeProducts', { products });
+};
+
+export function setupSocket(server) {
+  const io = new Server(server);
+
+  io.on('connection', socket => {
+    console.log('a user connected');
+
+    socket.on('createProduct', async product => {
+      await productManager.addProduct(product);
+      io.emit('productCreated', product);
+    });
+
+    socket.on('deleteProduct', async id => {
+      await productManager.deleteProduct(id);
+      io.emit('productDeleted', id);
+    });
+
+    socket.on('disconnect', () => {
+      console.log('user disconnected');
+    });
+  });
+}
