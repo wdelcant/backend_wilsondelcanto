@@ -39,11 +39,11 @@
 
   <section id="product-list">
     <h2>Lista de productos</h2>
-    <ul id="product-list">
+    <ul id="">
       {{#each products}}
       <li id="product-{{this.id}}">
         {{this.title}} - {{this.price}}
-        <button onclick="deleteProduct({{this.id}})">Eliminar</button>
+        <button onclick="deleteProduct('{{this.id}}')">Eliminar</button>
       </li>
       {{/each}}
     </ul>
@@ -75,26 +75,29 @@
       document.getElementById('category').value = '';
 
     });
+  function deleteProduct(productId) {
+    socket.emit('deleteProduct', productId);
+  }
 
   socket.on('productCreated', (newProduct) => {
     const productList = document.getElementById('product-list');
     const productItem = document.createElement('li');
     productItem.id = `product-${newProduct.id}`;
     productItem.innerHTML = `
-      ${newProduct.title} - ${newProduct.price}
-      <button onclick="deleteProduct(${newProduct.id})">Eliminar</button>
+    ${newProduct.title} - ${newProduct.price}
+    <button onclick="deleteProduct('${newProduct.id}')">Eliminar</button>
     `;
     productList.appendChild(productItem);
   });
 
   socket.on('productDeleted', (productId) => {
-    const productItem = document.getElementById(`product-${productId}`);
-    productItem.remove();
+    const productElement = document.getElementById(`product-${productId}`);
+    if (productElement) {
+      productElement.remove();
+    } else {
+      console.error(`Product with ID ${productId} does not exist in the DOM.`);
+    }
   });
-
-  function deleteProduct(productId) {
-    socket.emit('deleteProduct', productId);
-  }
 </script>
 
 <script>

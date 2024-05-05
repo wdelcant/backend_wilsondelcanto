@@ -1,7 +1,6 @@
-import { Server } from 'socket.io';
-import ProductManager from '../models/productModel.js';
+import ProductManager from '../dao//productManager.js';
 
-const productManager = new ProductManager('./products.json');
+const productManager = new ProductManager();
 
 export const getProducts = async (req, res) => {
   const limit = parseInt(req.query.limit);
@@ -37,7 +36,6 @@ export const addProduct = async (req, res) => {
     });
   }
   const newProduct = await productManager.addProduct(product);
-  req.io.emit('productCreated', newProduct);
   res.status(201).json({
     status: 'success',
     message: 'Producto creado correctamente',
@@ -52,7 +50,7 @@ export const updateProduct = async (req, res) => {
   if (!existingProduct) {
     return res.status(404).json({
       status: 'error',
-      error: `No se puede actualizar un producto con el ID:${pid} que no existe`,
+      error: `Producto con el ID:${pid} no encontrado`,
     });
   }
   const updatedProduct = await productManager.updateProduct(pid, product);
@@ -61,16 +59,14 @@ export const updateProduct = async (req, res) => {
 
 export const deleteProduct = async (req, res) => {
   const pid = parseInt(req.params.pid);
-  const existingProduct = await productManager.getProductById(pid);
-  if (!existingProduct) {
+  const product = await productManager.deleteProduct(pid);
+  if (!product) {
     return res.status(404).json({
       status: 'error',
-      error: `No se puede eliminar un producto con el ID:${pid} que no existe`,
+      error: 'Producto no encontrado',
     });
   }
-  await productManager.deleteProduct(pid);
-  req.io.emit('productDeleted', pid);
-  res.status(200).json({ message: 'Producto eliminado correctamente' });
+  res.json({ status: 'success', message: 'Producto eliminado correctamente' });
 };
 
 export const deleteAllProducts = async (req, res) => {
@@ -90,25 +86,3 @@ export const getRealTimeProducts = async (req, res) => {
   const products = await productManager.getProducts();
   res.render('realTimeProducts', { products });
 };
-
-export function setupSocket(server) {
-  const io = new Server(server);
-
-  io.on('connection', socket => {
-    console.log('a user connected');
-
-    socket.on('createProduct', async product => {
-      await productManager.addProduct(product);
-      io.emit('productCreated', product);
-    });
-
-    socket.on('deleteProduct', async id => {
-      await productManager.deleteProduct(id);
-      io.emit('productDeleted', id);
-    });
-
-    socket.on('disconnect', () => {
-      console.log('user disconnected');
-    });
-  });
-}
