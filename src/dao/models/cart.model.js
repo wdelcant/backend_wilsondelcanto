@@ -1,12 +1,20 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model } from 'mongoose'
 
 const cartSchema = new Schema({
-  products: Schema.Types.ObjectId,
-  quantity: Number,
-  price: Number,
-  total: Number,
-});
+  products: [
+    {
+      product: {
+        type: Schema.Types.ObjectId,
+        ref: 'products',
+      },
+      quantity: Number,
+    },
+  ],
+})
 
-const Cart = model('Cart', cartSchema);
+cartSchema.pre('findOne', function () {
+  this.populate('products.product')
+})
 
-export default Cart;
+const CartModel = model('Cart', cartSchema)
+export default CartModel

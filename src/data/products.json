@@ -1,0 +1,92 @@
+[
+  {
+    "title": "PC HP",
+    "description": "computador 8gb ram 240SSD",
+    "code": "968330133023",
+    "price": "300000",
+    "stock": "100",
+    "category": "computadoras",
+    "thumbnail": "/images/products.png",
+    "id": 2
+  },
+  {
+    "title": "PC LENOVO",
+    "description": "computador 16gb ram 500SSD",
+    "code": "968330133024",
+    "price": "400000",
+    "stock": "100",
+    "category": "computadoras",
+    "thumbnail": "/images/products.png",
+    "id": 3
+  },
+  {
+    "title": "PC ASUS",
+    "description": "computador 32gb ram 1TB",
+    "code": "968330133025",
+    "price": "500000",
+    "stock": "100",
+    "category": "computadoras",
+    "thumbnail": "/images/products.png",
+    "id": 4
+  },
+  {
+    "title": "PC ACER",
+    "description": "computador 64gb ram 2TB",
+    "code": "968330133026",
+    "price": "600000",
+    "stock": "100",
+    "category": "computadoras",
+    "thumbnail": "/images/products.png",
+    "id": 5
+  },
+  {
+    "title": "PC SAMSUNG",
+    "description": "computador 128gb ram 4TB",
+    "code": "968330133027",
+    "price": "700000",
+    "stock": "100",
+    "category": "computadoras",
+    "thumbnail": "/images/products.png",
+    "id": 6
+  },
+  {
+    "title": "PC SONY",
+    "description": "computador 256gb ram 8TB",
+    "code": "968330133028",
+    "price": "800000",
+    "stock": "100",
+    "category": "computadoras",
+    "thumbnail": "/images/products.png",
+    "id": 7
+  },
+  {
+    "title": "PC APPLE",
+    "description": "computador 512gb ram 16TB",
+    "code": "968330133029",
+    "price": "900000",
+    "stock": "100",
+    "category": "computadoras",
+    "thumbnail": "/images/products.png",
+    "id": 8
+  },
+  {
+    "title": "PC TOSHIBA",
+    "description": "computador 1024gb ram 32TB",
+    "code": "968330133030",
+    "price": "1000000",
+    "stock": "100",
+    "category": "computadoras",
+    "thumbnail": "/images/products.png",
+    "id": 9
+  },
+  {
+    "title": "PC IBM",
+    "description": "computador 2048gb ram 64TB",
+    "code": "968330133031",
+    "price": "1100000",
+    "stock": "100",
+    "category": "computadoras",
+    "thumbnail": "/images/products.png",
+    "id": 10
+  }
+]
