@@ -15,14 +15,13 @@ class ChatMongoManager {
 
   async addMessage(user, message) {
     const newMessage = {
-            user:user,
-            message:message
-        }
+      user: user,
+      message: message
+    }
     try {
       console.log(newMessage)
       return await chatsModel.create(newMessage)
-    }
-    catch (error) {
+    } catch (error) {
       throw error
     }
   }
@@ -37,10 +36,8 @@ class ChatMongoManager {
 
   async updateMessage(id, message) {
     try {
-      return await chatsModel.findByIdAndUpdate
-      (id, { message }, { new: true })
-    }
-    catch (error) {
+      return await chatsModel.findByIdAndUpdate(id, { message }, { new: true })
+    } catch (error) {
       throw error
     }
   }

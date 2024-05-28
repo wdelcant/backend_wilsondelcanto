@@ -1,20 +1,22 @@
-import MessageManager from '../dao/messageManager.js';
+import ChatMongoManager from '../../daos/chatMongo.manager.js'
 
-const messageManager = new MessageManager();
+const chatService = new ChatMongoManager()
 
 export const getChat = async (req, res) => {
-  const messages = await messageManager.getMessages();
-  res.render('chat', { messages });
-};
-
-export const postMessage = async (req, res) => {
-  const message = req.body;
-  if (!message.user || !message.message) {
-    return res.status(400).json({
-      status: 'error',
-      error: 'Datos de mensaje incompletos',
-    });
+  try {
+    const messages = await chatService.getMessages()
+    res.status(200).send({ status: 'success', payload: messages })
+  } catch (error) {
+    throw error
   }
-  const newMessage = await messageManager.addMessage(message);
-  res.status(201).send(newMessage);
-};
+}
+
+export const postChat = async (req, res) => {
+  try {
+    const { user, message } = req.body
+    const newMessage = await chatService.addMessage(user, message)
+    res.send({ status: 'success', payload: newMessage })
+  } catch (error) {
+    throw error
+  }
+}

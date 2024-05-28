@@ -31,8 +31,8 @@ app.engine(
     extname: '.hbs',
     runtimeOptions: {
       allowProtoPropertiesByDefault: true,
-      allowProtoMethodsByDefault: true,
-    },
+      allowProtoMethodsByDefault: true
+    }
   })
 )
 app.set('views', __dirname + '/views')

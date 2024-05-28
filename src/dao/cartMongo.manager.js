@@ -7,7 +7,7 @@ class CartsMongoManager {
 
   addNewCart = async () => {
     const cart = {
-      products: [],
+      products: []
     }
     const createdCart = await this.cartsModel.create(cart)
     return createdCart
@@ -17,7 +17,7 @@ class CartsMongoManager {
     try {
       const cartExists = this.cartsModel.where({
         _id: cartId,
-        'products.product': product,
+        'products.product': product
       })
       const productExists = await cartExists.find()
 
@@ -52,14 +52,14 @@ class CartsMongoManager {
     try {
       const cartExists = this.cartsModel.where({
         _id: cartId,
-        'products.product': product,
+        'products.product': product
       })
       const productExists = await cartExists.find()
 
       if (productExists.length === 0) {
         return {
           status: 'success',
-          payload: `El producto no existe en el carrito ${cartId}`,
+          payload: `El producto no existe en el carrito ${cartId}`
         }
       } else {
         const updatedProduct = await this.cartsModel.findOneAndUpdate(
@@ -99,27 +99,23 @@ class CartsMongoManager {
 
       return {
         status: 'success',
-        payload: `El producto ${product} fue eliminado del carrito ${cartId}`,
+        payload: `El producto ${product} fue eliminado del carrito ${cartId}`
       }
     } catch (error) {
       console.error('Error al borrar el producto del carrito:', error)
       return {
         status: 'error',
-        error: 'Error al eliminar el producto del carrito',
+        error: 'Error al eliminar el producto del carrito'
       }
     }
   }
 
   deleteCart = async (cartId, product) => {
     try {
-      await this.cartsModel.findByIdAndUpdate(
-        cartId,
-        { $set: { products: [] } },
-        { new: true }
-      )
+      await this.cartsModel.findByIdAndUpdate(cartId, { $set: { products: [] } }, { new: true })
       return {
         status: 'success',
-        payload: `El carrito fue eliminado correctamente`,
+        payload: `El carrito fue eliminado correctamente`
       }
     } catch (error) {
       console.log(error)

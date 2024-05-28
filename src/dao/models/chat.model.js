@@ -3,9 +3,9 @@ import { Schema, model } from 'mongoose'
 const chatsSchema = new Schema({
   user: {
     type: String,
-    required: true,
+    required: true
   },
-  message: String,
+  message: String
 })
 
 const chatsModel = model('messages', chatsSchema)
